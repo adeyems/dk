@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true qudus/react-test npm test
 
 after_success:
-  - docker build -t qudus/multi-client ./client
-  - docker build -t qudus/multi-nginx ./nginx
-  - docker build -t qudus/multi-server ./server
-  - docker build -t qudus/multi-worker ./worker
+  - docker build -t adeyems/multi-client ./client
+  - docker build -t adeyems/multi-nginx ./nginx
+  - docker build -t adeyems/multi-server ./server
+  - docker build -t adeyems/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push qudus/multi-client
-  - docker push qudus/multi-nginx
-  - docker push qudus/multi-server
-  - docker push qudus/multi-worker
+  - docker push adeyems/multi-client
+  - docker push adeyems/multi-nginx
+  - docker push adeyems/multi-server
+  - docker push adeyems/multi-worker
